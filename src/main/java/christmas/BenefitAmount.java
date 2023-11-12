@@ -15,8 +15,8 @@ public class BenefitAmount {
     }
 
     public int christmasDiscount(int date) {
-        discountAmount-=100*(date-1);
-        return discountAmount;
+        if(date >= 1 && date <= 25)  return discountAmount-=100*(date-1);
+        return 0;
     }
 
     public int weekDiscount(int date, int numberOfMain, int numberOfDessert) {
