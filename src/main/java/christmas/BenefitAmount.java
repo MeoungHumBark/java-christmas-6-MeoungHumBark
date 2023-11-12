@@ -1,7 +1,5 @@
 package christmas;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +23,8 @@ public class BenefitAmount {
         if(weekend.contains(date)) return numberOfMain*weekDiscountAmount;
         return numberOfDessert*weekDiscountAmount;
     }
-    public int bonus() {
-        return -1;
+    public int bonus(int totalAmount) {
+        if(totalAmount>=120000) return -25000;
+        return 0;
     }
 }
