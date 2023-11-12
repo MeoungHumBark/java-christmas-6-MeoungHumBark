@@ -1,12 +1,11 @@
 package christmas;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class BenefitAmount {
     private static final List<Integer> starDate = Arrays.asList(3, 10, 17, 24, 25, 31);
-    private static int discountAmount = -1000;
+    private int discountAmount = -1000;
 
     public int specialDiscount(int date) {
         if(starDate.contains(date)) return discountAmount;
