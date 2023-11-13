@@ -48,11 +48,18 @@ public class OutputView {
         System.out.println(totalAmount + "원");
     }
 
-    public static void printPayment(int totalPrice, int totalBenefit) {
+    public static void printPayment(int totalPrice, int totalBenefit,boolean isBonus) {
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
         int totalPay = totalPrice + totalBenefit;
+        if(isBonus) totalPay += 25000;
         String totalAmount = decimalFormat.format(totalPay);
         System.out.println(totalAmount + "원");
+    }
+
+    public static void printBadge(int totalPrice) {
+        System.out.println();
+        System.out.println("<12월 이벤트 배지>");
+        System.out.println(BenefitAmount.eventBadge(totalPrice));
     }
 }

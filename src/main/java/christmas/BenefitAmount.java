@@ -30,9 +30,9 @@ public class BenefitAmount {
         return 0;
     }
 
-    public static int calculateTotalBenefits(int christmasDiscounts, int weekDiscounts, int specialDiscounts) {
+    public static int calculateTotalBenefits(int christmasDiscounts, int weekDiscounts, int specialDiscounts, int bonus) {
         int totalBenefits = 0;
-        totalBenefits += (christmasDiscounts + weekDiscounts + specialDiscounts);
+        totalBenefits += (christmasDiscounts + weekDiscounts + specialDiscounts + bonus);
         return totalBenefits;
     }
 
