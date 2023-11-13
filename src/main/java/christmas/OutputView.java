@@ -47,4 +47,12 @@ public class OutputView {
         String totalAmount = decimalFormat.format(total);
         System.out.println(totalAmount + "원");
     }
+
+    public static void printPayment(int totalPrice, int totalBenefit) {
+        System.out.println();
+        System.out.println("<할인 후 예상 결제 금액>");
+        int totalPay = totalPrice + totalBenefit;
+        String totalAmount = decimalFormat.format(totalPay);
+        System.out.println(totalAmount + "원");
+    }
 }

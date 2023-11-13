@@ -20,7 +20,8 @@ public class Application {
         int specialDiscounts = BenefitAmount.specialDiscount(date);
         int bonus = BenefitAmount.bonus(isBonus);
         OutputView.printBenefit(christmasDiscounts,weekDiscounts,specialDiscounts,bonus);
-        int totalBenefit = BenefitAmount.calculateTotalBenefits(christmasDiscounts,weekDiscounts,specialDiscounts,bonus);
+        int totalBenefit = BenefitAmount.calculateTotalBenefits(christmasDiscounts,weekDiscounts,specialDiscounts);
         OutputView.printTotalBenefit(totalBenefit);
+        OutputView.printPayment(totalPrice,totalBenefit);
     }
 }
