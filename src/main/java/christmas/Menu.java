@@ -28,4 +28,22 @@ public enum Menu {
     public String getType() {
         return type;
     }
+
+    public static int getPriceByName(String name) {
+        for (Menu food : Menu.values()) {
+            if (food.name().equals(name)) {
+                return food.getPrice();
+            }
+        }
+        return -1;
+    }
+
+    public static String getTypeByName(String name) {
+        for (Menu food : Menu.values()) {
+            if (food.name().equals(name)) {
+                return food.getType();
+            }
+        }
+        return "";
+    }
 }
