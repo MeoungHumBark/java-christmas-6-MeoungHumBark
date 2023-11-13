@@ -3,9 +3,9 @@ package christmas;
 import java.util.HashMap;
 
 public class Order {
-    private HashMap<String, Integer> order;
+    private static HashMap<String, Integer> order = new HashMap<>();
 
-    public HashMap<String, Integer> processOrder(String OrderInput) {
+    public static HashMap<String, Integer> processOrder(String OrderInput) {
         String[] orderItems = OrderInput.split(",");
         for (String orderItem : orderItems) {
             String[] itemInfo = orderItem.trim().split("-");
@@ -13,10 +13,6 @@ public class Order {
             int quantity = Integer.parseInt(itemInfo[1]);
             order.put(name, quantity);
         }
-        return order;
-    }
-
-    public HashMap<String, Integer> getOrder() {
         return order;
     }
 }

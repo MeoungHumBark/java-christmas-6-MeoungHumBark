@@ -11,11 +11,13 @@ public class OutputView {
     }
 
     public static void printOrderMenu(HashMap<String, Integer> order) {
+        System.out.println();
         System.out.println("<주문 메뉴>");
         order.forEach((name, quantity) -> System.out.println(name + " " + quantity + "개"));
     }
 
     public static void printTotalPrice(int total) {
+        System.out.println();
         System.out.println("<할인 전 총주문 금액>");
         //todo
         /*total 가격 string으로 바꾸면서 , 추가
