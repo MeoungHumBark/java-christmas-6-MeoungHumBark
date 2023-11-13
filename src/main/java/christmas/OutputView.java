@@ -24,4 +24,11 @@ public class OutputView {
         String totalAmount = decimalFormat.format(total);
         System.out.println(totalAmount + "원");
     }
+
+    public static void printBonus(boolean isBonus) {
+        System.out.println();
+        System.out.println("<증정 메뉴>");
+        if(isBonus) System.out.println("샴페인 1개");
+        if(!isBonus) System.out.println("없음");
+    }
 }

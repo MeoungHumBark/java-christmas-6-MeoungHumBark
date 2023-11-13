@@ -25,17 +25,17 @@ public class BenefitAmount {
         if(weekend.contains(date)) return numberOfMain*weekDiscountAmount;
         return numberOfDessert*weekDiscountAmount;
     }
-    public static int bonus(int totalAmount) {
-        if(totalAmount>=120000) return -25000;
+    public static int bonus(boolean isBonus) {
+        if(isBonus) return -25000;
         return 0;
     }
 
-    public static int calculateTotalBenefits(int date, int numberOfMain, int numberOfDessert, int totalAmount) {
+    public static int calculateTotalBenefits(int date, int numberOfMain, int numberOfDessert, boolean isBonus) {
         int totalBenefits = 0;
         totalBenefits += specialDiscount(date)
                 +christmasDiscount(date)
                 +weekDiscount(date, numberOfMain, numberOfDessert)
-                +bonus(totalAmount);
+                +bonus(isBonus);
         return totalBenefits;
     }
 

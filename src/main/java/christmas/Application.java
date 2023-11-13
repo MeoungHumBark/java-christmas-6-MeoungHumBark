@@ -11,5 +11,9 @@ public class Application {
         HashMap<String, Integer> order = Order.processOrder(orderInput);
         OutputView.printEventBenefit(date);
         OutputView.printOrderMenu(order);
+        int totalPrice = TotalAmount.calculateTotalPrice(order);
+        OutputView.printTotalPrice(totalPrice);
+        boolean isBonus = TotalAmount.isBonus(totalPrice);
+        OutputView.printBonus(isBonus);
     }
 }

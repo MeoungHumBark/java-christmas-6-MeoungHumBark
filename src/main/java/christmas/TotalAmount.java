@@ -14,6 +14,10 @@ public class TotalAmount {
         return totalPrice;
     }
 
+    public static boolean isBonus(int totalAmount) {
+        return totalAmount >= 120000;
+    }
+
     public static int quantityOfMain(HashMap<String, Integer> order) {
         int totalQuantityOfMain = 0;
 
