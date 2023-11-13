@@ -29,4 +29,13 @@ public class BenefitAmount {
         if(totalAmount>=120000) return -25000;
         return 0;
     }
+
+    public static int calculateTotalBenefits(int date, int numberOfMain, int numberOfDessert, int totalAmount) {
+        int totalBenefits = 0;
+        totalBenefits += specialDiscount(date)
+                +christmasDiscount(date)
+                +weekDiscount(date, numberOfMain, numberOfDessert)
+                +bonus(totalAmount);
+        return totalBenefits;
+    }
 }
