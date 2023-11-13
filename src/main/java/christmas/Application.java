@@ -9,11 +9,12 @@ public class Application {
         int date = InputView.printVisitDateInput();
         String orderInput = InputView.printOrderInput();
         HashMap<String, Integer> order = Order.processOrder(orderInput);
-        OutputView.printEventBenefit(date);
+        OutputView.printEvent(date);
         OutputView.printOrderMenu(order);
         int totalPrice = TotalAmount.calculateTotalPrice(order);
         OutputView.printTotalPrice(totalPrice);
         boolean isBonus = TotalAmount.isBonus(totalPrice);
         OutputView.printBonus(isBonus);
+        OutputView.printBenefit(date,order,isBonus);
     }
 }
