@@ -7,9 +7,9 @@ public class Order {
 
     public HashMap<String, Integer> processOrder(Object... args) {
         for (int i = 0; i < args.length; i += 2) {
-            String key = (String) args[i];
-            Integer value = (Integer) args[i + 1];
-            order.put(key, value);
+            String name = (String) args[i];
+            Integer quantity = (Integer) args[i + 1];
+            order.put(name, quantity);
         }
         return order;
     }
