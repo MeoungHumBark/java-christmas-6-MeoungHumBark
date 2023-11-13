@@ -32,14 +32,19 @@ public class OutputView {
         if(!isBonus) System.out.println("없음");
     }
 
-    public static void printBenefit(int date, HashMap<String, Integer> order, boolean isBonus) {
+    public static void printBenefit(int christmasDiscounts, int weekDiscounts, int specialDiscounts, int bonus) {
         System.out.println();
         System.out.println("<혜택 내역>");
-        System.out.println("크리스마스 디데이 할인: " + decimalFormat.format(BenefitAmount.christmasDiscount(date)) + "원");
-        System.out.println("평일 할인: " + decimalFormat.format(BenefitAmount.weekDiscount(date
-                                        ,TotalAmount.quantityOfMain(order)
-                                        ,TotalAmount.quantityOfDessert(order))) + "원");
-        System.out.println("특별 할인: " + decimalFormat.format(BenefitAmount.specialDiscount(date)) + "원");
-        System.out.println("증정 이벤트: " + decimalFormat.format(BenefitAmount.bonus(isBonus)) + "원");
+        System.out.println("크리스마스 디데이 할인: " + decimalFormat.format(christmasDiscounts) + "원");
+        System.out.println("평일 할인: " + decimalFormat.format(weekDiscounts) + "원");
+        System.out.println("특별 할인: " + decimalFormat.format(specialDiscounts) + "원");
+        System.out.println("증정 이벤트: " + decimalFormat.format(bonus) + "원");
+    }
+
+    public static void printTotalBenefit(int total) {
+        System.out.println();
+        System.out.println("<총혜택 금액>");
+        String totalAmount = decimalFormat.format(total);
+        System.out.println(totalAmount + "원");
     }
 }
