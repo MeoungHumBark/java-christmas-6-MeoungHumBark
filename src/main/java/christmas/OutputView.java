@@ -1,5 +1,6 @@
 package christmas;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class OutputView {
@@ -17,11 +18,10 @@ public class OutputView {
     }
 
     public static void printTotalPrice(int total) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
         System.out.println();
         System.out.println("<할인 전 총주문 금액>");
-        //todo
-        /*total 가격 string으로 바꾸면서 , 추가
-        System.out.println(total + "원");
-        */
+        String totalAmount = decimalFormat.format(total);
+        System.out.println(totalAmount + "원");
     }
 }
