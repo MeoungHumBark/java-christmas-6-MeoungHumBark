@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         OutputView.welcomeMessage();
         int date = InputView.printVisitDateInput();
         String orderInput = InputView.printOrderInput();
@@ -19,10 +18,10 @@ public class Application {
         int weekDiscounts = BenefitAmount.weekDiscount(date,TotalAmount.quantityOfMain(order),TotalAmount.quantityOfDessert(order));
         int specialDiscounts = BenefitAmount.specialDiscount(date);
         int bonus = BenefitAmount.bonus(isBonus);
-        OutputView.printBenefit(christmasDiscounts,weekDiscounts,specialDiscounts,bonus);
         int totalBenefit = BenefitAmount.calculateTotalBenefits(christmasDiscounts,weekDiscounts,specialDiscounts,bonus);
+        OutputView.printBenefit(christmasDiscounts,weekDiscounts,specialDiscounts,bonus,totalBenefit);
         OutputView.printTotalBenefit(totalBenefit);
         OutputView.printPayment(totalPrice,totalBenefit,isBonus);
-        OutputView.printBadge(totalPrice);
+        OutputView.printBadge(totalBenefit);
     }
 }

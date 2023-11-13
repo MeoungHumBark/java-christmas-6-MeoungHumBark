@@ -37,9 +37,9 @@ public class BenefitAmount {
     }
 
     public static String eventBadge(int totalBenefits) {
-        if (totalBenefits >= 20000) return "산타";
-        if (totalBenefits >= 10000) return "트리";
-        if (totalBenefits >= 5000) return "별";
+        if (-totalBenefits >= 20000) return "산타";
+        if (-totalBenefits >= 10000) return "트리";
+        if (-totalBenefits >= 5000) return "별";
         return "없음";
     }
 }
