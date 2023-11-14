@@ -44,7 +44,7 @@ public class InputView {
         return "";
     }
     public static boolean isOrderFormatValid(String orderInput) {
-        String orderFormatRegex = "^[a-zA-Z가-힣]+-\\d+([,][a-zA-Z가-힣]+-\\d+)*$";
+        String orderFormatRegex = "^[a-zA-Z가-힣]+-[1-9]\\d*(,[a-zA-Z가-힣]+-[1-9]\\d*)*$";
         return Pattern.matches(orderFormatRegex, orderInput);
     }
 }
