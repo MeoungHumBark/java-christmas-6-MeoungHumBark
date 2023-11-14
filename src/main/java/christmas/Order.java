@@ -22,10 +22,22 @@ public class Order {
             Menu.valueOf(name);
             order.put(name, quantity);
         }
+        if (Order.calculateTotalOrder()>20) {
+            order.clear();
+            throw new IllegalArgumentException();
+        }
         return order;
     }
 
     public static HashMap<String, Integer> getOrder() {
         return order;
+    }
+
+    public static int calculateTotalOrder() {
+        int totalOrders = 0;
+        for (int value : order.values()) {
+            totalOrders += value;
+        }
+        return totalOrders;
     }
 }
