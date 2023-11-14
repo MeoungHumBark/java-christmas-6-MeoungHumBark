@@ -88,4 +88,18 @@ public class BenefitAmount {
         }
         return totalQuantityOfDessert;
     }
+
+    public static int quantityOfNotDrink() {
+        int totalQuantityOfNotDrink = 0;
+
+        for (String name : Order.getOrder().keySet()) {
+            int quantity = Order.getOrder().get(name);
+            String type = Menu.valueOf(name).getType();
+
+            if (!type.equals("음료")) {
+                totalQuantityOfNotDrink += quantity;
+            }
+        }
+        return totalQuantityOfNotDrink;
+    }
 }

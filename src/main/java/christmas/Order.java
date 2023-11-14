@@ -22,7 +22,7 @@ public class Order {
             Menu.valueOf(name);
             order.put(name, quantity);
         }
-        if (Order.calculateTotalOrder()>20) {
+        if (Order.calculateTotalOrder()>20 || BenefitAmount.quantityOfNotDrink()==0) {
             order.clear();
             throw new IllegalArgumentException();
         }
