@@ -18,6 +18,7 @@ public class Order {
             if (order.containsKey(name)) {
                 throw new IllegalArgumentException();
             }
+            Menu.valueOf(name);
             order.put(name, quantity);
         }
         return order;
