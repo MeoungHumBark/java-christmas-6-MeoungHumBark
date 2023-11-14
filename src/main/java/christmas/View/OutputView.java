@@ -29,7 +29,7 @@ public class OutputView {
     public static void printTotalPrice() {
         System.out.println();
         System.out.println("<할인 전 총주문 금액>");
-        String totalAmount = decimalFormat.format(TotalAmount.getTotalPrice());
+        String totalAmount = decimalFormat.format(TotalAmount.calculateTotalPrice());
         System.out.println(totalAmount + "원");
     }
 
@@ -64,7 +64,7 @@ public class OutputView {
     public static void printPayment(int totalBenefit) {
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
-        int totalPay = TotalAmount.getTotalPrice() + totalBenefit;
+        int totalPay = TotalAmount.calculateTotalPrice() + totalBenefit;
         if(TotalAmount.isBonus()) totalPay += 25000;
         String totalAmount = decimalFormat.format(totalPay);
         System.out.println(totalAmount + "원");

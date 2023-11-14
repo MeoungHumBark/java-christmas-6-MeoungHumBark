@@ -14,7 +14,6 @@ public class Application {
         OutputView.printEvent(date);
         OutputView.printOrderMenu(order);
 
-        TotalAmount.calculateTotalPrice();
         OutputView.printTotalPrice();
         OutputView.printBonus();
 

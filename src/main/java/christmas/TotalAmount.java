@@ -3,25 +3,22 @@ package christmas;
 import christmas.Order.Order;
 
 public class TotalAmount {
-    private static int totalPrice = 0;
 
-    public TotalAmount() {
-        this.totalPrice = 0;
-    }
-
-    public static int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public static void calculateTotalPrice() {
+    public static int calculateTotalPrice() {
+        int totalPrice = 0;
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
             int price = Menu.valueOf(name).getPrice();
             totalPrice += (quantity * price);
         }
+        return totalPrice;
     }
 
     public static boolean isBonus() {
-        return totalPrice >= 120000;
+        return calculateTotalPrice() >= 120000;
+    }
+
+    public static boolean isEvent() {
+        return calculateTotalPrice() >= 10000;
     }
 }
