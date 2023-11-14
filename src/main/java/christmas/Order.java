@@ -16,6 +16,7 @@ public class Order {
             String name = itemInfo[0];
             int quantity = Integer.parseInt(itemInfo[1]);
             if (order.containsKey(name)) {
+                order.clear();
                 throw new IllegalArgumentException();
             }
             Menu.valueOf(name);

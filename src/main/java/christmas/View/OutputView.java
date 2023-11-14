@@ -2,9 +2,9 @@ package christmas.View;
 
 import christmas.BenefitAmount;
 import christmas.Order;
+import christmas.TotalAmount;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.Map;
 
 public class OutputView {
@@ -26,42 +26,46 @@ public class OutputView {
         }
     }
 
-    public static void printTotalPrice(int total) {
+    public static void printTotalPrice() {
         System.out.println();
         System.out.println("<할인 전 총주문 금액>");
-        String totalAmount = decimalFormat.format(total);
+        String totalAmount = decimalFormat.format(TotalAmount.getTotalPrice());
         System.out.println(totalAmount + "원");
     }
 
-    public static void printBonus(boolean isBonus) {
+    public static void printBonus() {
         System.out.println();
         System.out.println("<증정 메뉴>");
-        if(isBonus) System.out.println("샴페인 1개");
-        if(!isBonus) System.out.println("없음");
+        if(TotalAmount.isBonus()) System.out.println("샴페인 1개");
+        if(!TotalAmount.isBonus()) System.out.println("없음");
     }
 
-    public static void printBenefit(int christmasDiscounts, int weekDiscounts, int specialDiscounts, int bonus, int totalBenefit) {
+    public static void printBenefit(BenefitAmount benefit) {
         System.out.println();
         System.out.println("<혜택 내역>");
-        if(christmasDiscounts!=0) System.out.println("크리스마스 디데이 할인: " + decimalFormat.format(christmasDiscounts) + "원");
-        if(weekDiscounts!=0) System.out.println("평일 할인: " + decimalFormat.format(weekDiscounts) + "원");
-        if(specialDiscounts!=0) System.out.println("특별 할인: " + decimalFormat.format(specialDiscounts) + "원");
-        if(bonus!=0) System.out.println("증정 이벤트: " + decimalFormat.format(bonus) + "원");
-        if(totalBenefit==0) System.out.println("없음");
+        if(benefit.calculateTotalBenefits()==0) {
+            System.out.println("없음");
+        }
+        for(String name : benefit.getBenefit().keySet()){
+            if(benefit.getBenefit().get(name)!=0) {
+                System.out.println(name + decimalFormat.format(benefit.getBenefit().get(name)) + "원");
+            }
+        }
+
     }
 
-    public static void printTotalBenefit(int total) {
+    public static void printTotalBenefit(BenefitAmount benefit) {
         System.out.println();
         System.out.println("<총혜택 금액>");
-        String totalAmount = decimalFormat.format(total);
+        String totalAmount = decimalFormat.format(benefit.calculateTotalBenefits());
         System.out.println(totalAmount + "원");
     }
 
-    public static void printPayment(int totalPrice, int totalBenefit,boolean isBonus) {
+    public static void printPayment(int totalBenefit) {
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
-        int totalPay = totalPrice + totalBenefit;
-        if(isBonus) totalPay += 25000;
+        int totalPay = TotalAmount.getTotalPrice() + totalBenefit;
+        if(TotalAmount.isBonus()) totalPay += 25000;
         String totalAmount = decimalFormat.format(totalPay);
         System.out.println(totalAmount + "원");
     }
