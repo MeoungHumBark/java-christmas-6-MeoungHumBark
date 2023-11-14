@@ -10,17 +10,6 @@ public class Application {
         int date = InputView.printVisitDateInput();
         Order order = new Order();
         InputView.printOrderInput(order);
-
-        OutputView.printEvent(date);
-        OutputView.printOrderMenu(order);
-
-        OutputView.printTotalPrice();
-        OutputView.printBonus();
-
-        new BenefitAmount(date);
-        OutputView.printBenefit();
-        OutputView.printTotalBenefit();
-        OutputView.printPayment();
-        OutputView.printBadge();
+        OutputView.printResult(date,order);
     }
 }

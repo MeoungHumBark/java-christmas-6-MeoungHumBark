@@ -72,4 +72,16 @@ public class OutputView {
         System.out.println("<12월 이벤트 배지>");
         System.out.println(BenefitAmount.eventBadge());
     }
+
+    public static void printResult(int date, Order order) {
+        printEvent(date);
+        printOrderMenu(order);
+        printTotalPrice();
+        printBonus();
+        new BenefitAmount(date);
+        printBenefit();
+        printTotalBenefit();
+        printPayment();
+        printBadge();
+    }
 }
