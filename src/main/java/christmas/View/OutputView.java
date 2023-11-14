@@ -1,4 +1,6 @@
-package christmas;
+package christmas.View;
+
+import christmas.BenefitAmount;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;

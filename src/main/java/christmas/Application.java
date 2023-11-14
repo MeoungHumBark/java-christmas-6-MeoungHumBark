@@ -1,5 +1,8 @@
 package christmas;
 
+import christmas.View.InputView;
+import christmas.View.OutputView;
+
 import java.util.HashMap;
 
 public class Application {
