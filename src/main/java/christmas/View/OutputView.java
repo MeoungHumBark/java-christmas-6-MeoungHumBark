@@ -1,9 +1,11 @@
 package christmas.View;
 
 import christmas.BenefitAmount;
+import christmas.Order;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.Map;
 
 public class OutputView {
     private static final DecimalFormat decimalFormat = new DecimalFormat("#,###");
@@ -14,10 +16,14 @@ public class OutputView {
         System.out.println("12월 "+date+"일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
     }
 
-    public static void printOrderMenu(HashMap<String, Integer> order) {
+    public static void printOrderMenu(Order order) {
         System.out.println();
         System.out.println("<주문 메뉴>");
-        order.forEach((name, quantity) -> System.out.println(name + " " + quantity + "개"));
+        for (Map.Entry<String, Integer> entry : Order.getOrder().entrySet()) {
+            String name = entry.getKey();
+            int quantity = entry.getValue();
+            System.out.println(name + " " + quantity + "개");
+        }
     }
 
     public static void printTotalPrice(int total) {

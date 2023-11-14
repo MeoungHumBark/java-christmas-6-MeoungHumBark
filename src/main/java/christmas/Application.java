@@ -9,20 +9,20 @@ public class Application {
     public static void main(String[] args) {
         OutputView.welcomeMessage();
         int date = InputView.printVisitDateInput();
-        String orderInput = InputView.printOrderInput();
-        HashMap<String, Integer> order = Order.processOrder(orderInput);
+        Order order = new Order();
+        InputView.printOrderInput(order);
 
         OutputView.printEvent(date);
         OutputView.printOrderMenu(order);
 
-        int totalPrice = TotalAmount.calculateTotalPrice(order);
+        int totalPrice = TotalAmount.calculateTotalPrice();
         OutputView.printTotalPrice(totalPrice);
 
         boolean isBonus = TotalAmount.isBonus(totalPrice);
         OutputView.printBonus(isBonus);
 
         int christmasDiscounts = BenefitAmount.christmasDiscount(date);
-        int weekDiscounts = BenefitAmount.weekDiscount(date,TotalAmount.quantityOfMain(order),TotalAmount.quantityOfDessert(order));
+        int weekDiscounts = BenefitAmount.weekDiscount(date,TotalAmount.quantityOfMain(),TotalAmount.quantityOfDessert());
         int specialDiscounts = BenefitAmount.specialDiscount(date);
         int bonus = BenefitAmount.bonus(isBonus);
 
