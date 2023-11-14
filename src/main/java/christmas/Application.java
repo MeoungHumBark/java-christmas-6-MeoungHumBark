@@ -18,11 +18,7 @@ public class Application {
         OutputView.printTotalPrice();
         OutputView.printBonus();
 
-        BenefitAmount benefit = new BenefitAmount();
-        benefit.christmasDiscount(date);
-        benefit.weekDiscount(date);
-        benefit.specialDiscount(date);
-        benefit.bonus();
+        BenefitAmount benefit = new BenefitAmount(date);
         OutputView.printBenefit(benefit);
 
         OutputView.printTotalBenefit(benefit);

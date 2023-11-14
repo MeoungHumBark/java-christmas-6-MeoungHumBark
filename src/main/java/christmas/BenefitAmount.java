@@ -13,7 +13,12 @@ public class BenefitAmount {
     private static int christmasDiscountAmount = -1000;
     private static int specialDiscountAmount = -1000;
     private final HashMap<String, Integer> benefit = new HashMap<>();
-
+    public BenefitAmount(int date) {
+        christmasDiscount(date);
+        weekDiscount(date);
+        specialDiscount(date);
+        bonus();
+    }
     public HashMap<String, Integer> getBenefit() {
         return benefit;
     }
