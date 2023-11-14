@@ -1,5 +1,6 @@
-package christmas;
+package christmas.Order;
 
+import christmas.Menu;
 import java.util.HashMap;
 
 public class Order {
@@ -22,7 +23,7 @@ public class Order {
             Menu.valueOf(name);
             order.put(name, quantity);
         }
-        if (Order.calculateTotalOrder()>20 || BenefitAmount.quantityOfNotDrink()==0) {
+        if (Order.calculateTotalOrder()>20 || OrderByType.quantityOfNotDrink()==0) {
             order.clear();
             throw new IllegalArgumentException();
         }

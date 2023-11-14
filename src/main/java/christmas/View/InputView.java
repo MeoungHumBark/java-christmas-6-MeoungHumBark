@@ -1,7 +1,7 @@
 package christmas.View;
 
 import camp.nextstep.edu.missionutils.Console;
-import christmas.Order;
+import christmas.Order.Order;
 import java.util.regex.Pattern;
 
 public class InputView {

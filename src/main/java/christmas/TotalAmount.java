@@ -1,5 +1,7 @@
 package christmas;
 
+import christmas.Order.Order;
+
 public class TotalAmount {
     private static int totalPrice = 0;
 

@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.Order.Order;
 import christmas.View.InputView;
 import christmas.View.OutputView;
 

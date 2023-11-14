@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.Order.OrderByType;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -25,11 +26,11 @@ public class BenefitAmount {
 
     public void weekDiscount(int date) {
         if(weekend.contains(date) && TotalAmount.getTotalPrice()>=10000) {
-            weekDiscountAmount = quantityOfMain()*weekDiscountAmount;
+            weekDiscountAmount = OrderByType.quantityOfMain()*weekDiscountAmount;
             benefit.put("주말 할인: ",weekDiscountAmount);
         }
         if(!weekend.contains(date) && TotalAmount.getTotalPrice()>=10000){
-            weekDiscountAmount = quantityOfDessert()*weekDiscountAmount;
+            weekDiscountAmount = OrderByType.quantityOfDessert()*weekDiscountAmount;
             benefit.put("평일 할인: ",weekDiscountAmount);
         }
     }
@@ -59,47 +60,5 @@ public class BenefitAmount {
         if (-totalBenefits >= 10000) return "트리";
         if (-totalBenefits >= 5000) return "별";
         return "없음";
-    }
-
-    public static int quantityOfMain() {
-        int totalQuantityOfMain = 0;
-
-        for (String name : Order.getOrder().keySet()) {
-            int quantity = Order.getOrder().get(name);
-            String type = Menu.valueOf(name).getType();
-
-            if (type.equals("메인")) {
-                totalQuantityOfMain += quantity;
-            }
-        }
-        return totalQuantityOfMain;
-    }
-
-    public static int quantityOfDessert() {
-        int totalQuantityOfDessert = 0;
-
-        for (String name : Order.getOrder().keySet()) {
-            int quantity = Order.getOrder().get(name);
-            String type = Menu.valueOf(name).getType();
-
-            if (type.equals("디저트")) {
-                totalQuantityOfDessert += quantity;
-            }
-        }
-        return totalQuantityOfDessert;
-    }
-
-    public static int quantityOfNotDrink() {
-        int totalQuantityOfNotDrink = 0;
-
-        for (String name : Order.getOrder().keySet()) {
-            int quantity = Order.getOrder().get(name);
-            String type = Menu.valueOf(name).getType();
-
-            if (!type.equals("음료")) {
-                totalQuantityOfNotDrink += quantity;
-            }
-        }
-        return totalQuantityOfNotDrink;
     }
 }
