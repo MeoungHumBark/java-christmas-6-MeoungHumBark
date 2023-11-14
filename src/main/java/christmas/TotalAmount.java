@@ -1,14 +1,12 @@
 package christmas;
 
-import java.util.HashMap;
-
 public class TotalAmount {
     public static int calculateTotalPrice() {
         int totalPrice = 0;
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            int price = Menu.getPriceByName(name);
+            int price = Menu.getMenuByName(name).getPrice();
             totalPrice += (quantity * price);
         }
         return totalPrice;
@@ -23,7 +21,7 @@ public class TotalAmount {
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            String type = Menu.getTypeByName(name);
+            String type = Menu.getMenuByName(name).getType();
 
             if (type.equals("메인")) {
                 totalQuantityOfMain += quantity;
@@ -37,7 +35,7 @@ public class TotalAmount {
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            String type = Menu.getTypeByName(name);
+            String type = Menu.getMenuByName(name).getType();
 
             if (type.equals("디저트")) {
                 totalQuantityOfDessert += quantity;
