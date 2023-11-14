@@ -28,8 +28,4 @@ public enum Menu {
     public String getType() {
         return type;
     }
-
-    public static Menu getMenuByName(String name) {
-        return Menu.valueOf(name);
-    }
 }

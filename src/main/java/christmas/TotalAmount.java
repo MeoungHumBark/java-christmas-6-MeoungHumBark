@@ -6,7 +6,7 @@ public class TotalAmount {
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            int price = Menu.getMenuByName(name).getPrice();
+            int price = Menu.valueOf(name).getPrice();
             totalPrice += (quantity * price);
         }
         return totalPrice;
@@ -21,7 +21,7 @@ public class TotalAmount {
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            String type = Menu.getMenuByName(name).getType();
+            String type = Menu.valueOf(name).getType();
 
             if (type.equals("메인")) {
                 totalQuantityOfMain += quantity;
@@ -35,7 +35,7 @@ public class TotalAmount {
 
         for (String name : Order.getOrder().keySet()) {
             int quantity = Order.getOrder().get(name);
-            String type = Menu.getMenuByName(name).getType();
+            String type = Menu.valueOf(name).getType();
 
             if (type.equals("디저트")) {
                 totalQuantityOfDessert += quantity;
