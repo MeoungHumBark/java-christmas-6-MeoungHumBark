@@ -3,7 +3,6 @@ package christmas.View;
 import christmas.BenefitAmount;
 import christmas.Order.Order;
 import christmas.TotalAmount;
-
 import java.text.DecimalFormat;
 import java.util.Map;
 
@@ -36,8 +35,8 @@ public class OutputView {
     public static void printBonus() {
         System.out.println();
         System.out.println("<증정 메뉴>");
-        if(TotalAmount.isBonus()) System.out.println("샴페인 1개");
         if(!TotalAmount.isBonus()) System.out.println("없음");
+        if(TotalAmount.isBonus()) System.out.println("샴페인 1개");
     }
 
     public static void printBenefit() {
@@ -46,12 +45,12 @@ public class OutputView {
         if(BenefitAmount.calculateTotalBenefit()==0) {
             System.out.println("없음");
         }
-        for(String name : BenefitAmount.getBenefit().keySet()){
-            if(BenefitAmount.getBenefit().get(name)!=0) {
-                System.out.println(name + decimalFormat.format(BenefitAmount.getBenefit().get(name)) + "원");
+        if(BenefitAmount.calculateTotalBenefit()!=0) {
+            for(String name : BenefitAmount.getBenefit().keySet()){
+                String totalAmount = decimalFormat.format(BenefitAmount.getBenefit().get(name));
+                System.out.println(name + totalAmount + "원");
             }
         }
-
     }
 
     public static void printTotalBenefit() {
@@ -64,9 +63,7 @@ public class OutputView {
     public static void printPayment() {
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
-        int totalPay = TotalAmount.calculateTotalPrice() + BenefitAmount.calculateTotalBenefit();;
-        if(TotalAmount.isBonus()) totalPay += 25000;
-        String totalAmount = decimalFormat.format(totalPay);
+        String totalAmount = decimalFormat.format(TotalAmount.calculateTotalPay());
         System.out.println(totalAmount + "원");
     }
 

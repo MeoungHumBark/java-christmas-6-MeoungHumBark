@@ -14,6 +14,13 @@ public class TotalAmount {
         return totalPrice;
     }
 
+    public static int calculateTotalPay() {
+        int totalPay = 0;
+        totalPay = calculateTotalPrice() + BenefitAmount.calculateTotalBenefit();
+        if(TotalAmount.isBonus()) totalPay += Menu.샴페인.getPrice();
+        return totalPay;
+    }
+
     public static boolean isBonus() {
         return calculateTotalPrice() >= 120000;
     }
