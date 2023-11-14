@@ -45,11 +45,9 @@ public class OutputView {
         if(BenefitAmount.calculateTotalBenefit()==0) {
             System.out.println("없음");
         }
-        if(BenefitAmount.calculateTotalBenefit()!=0) {
-            for(String name : BenefitAmount.getBenefit().keySet()){
-                String totalAmount = decimalFormat.format(BenefitAmount.getBenefit().get(name));
-                System.out.println(name + totalAmount + "원");
-            }
+        for(String name : BenefitAmount.getBenefit().keySet()){
+            String totalAmount = decimalFormat.format(BenefitAmount.getBenefit().get(name));
+            if(BenefitAmount.getBenefit().get(name)!=0) System.out.println(name + totalAmount + "원");
         }
     }
 
