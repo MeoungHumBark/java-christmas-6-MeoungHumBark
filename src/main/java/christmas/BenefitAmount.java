@@ -12,14 +12,14 @@ public class BenefitAmount {
 
     private static int christmasDiscountAmount = -1000;
     private static int specialDiscountAmount = -1000;
-    private final HashMap<String, Integer> benefit = new HashMap<>();
+    private static final HashMap<String, Integer> benefit = new HashMap<>();
     public BenefitAmount(int date) {
         christmasDiscount(date);
         weekDiscount(date);
         specialDiscount(date);
         bonus();
     }
-    public HashMap<String, Integer> getBenefit() {
+    public static HashMap<String, Integer> getBenefit() {
         return benefit;
     }
     public void christmasDiscount(int date) {
@@ -52,7 +52,7 @@ public class BenefitAmount {
         }
     }
 
-    public int calculateTotalBenefits() {
+    public static int calculateTotalBenefit() {
         int totalBenefits = 0;
         for (int value : benefit.values()) {
             totalBenefits += value;
@@ -60,10 +60,10 @@ public class BenefitAmount {
         return totalBenefits;
     }
 
-    public static String eventBadge(int totalBenefits) {
-        if (-totalBenefits >= 20000) return "산타";
-        if (-totalBenefits >= 10000) return "트리";
-        if (-totalBenefits >= 5000) return "별";
+    public static String eventBadge() {
+        if (-BenefitAmount.calculateTotalBenefit() >= 20000) return "산타";
+        if (-BenefitAmount.calculateTotalBenefit() >= 10000) return "트리";
+        if (-BenefitAmount.calculateTotalBenefit() >= 5000) return "별";
         return "없음";
     }
 }

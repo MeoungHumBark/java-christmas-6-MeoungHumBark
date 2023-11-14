@@ -17,12 +17,10 @@ public class Application {
         OutputView.printTotalPrice();
         OutputView.printBonus();
 
-        BenefitAmount benefit = new BenefitAmount(date);
-        OutputView.printBenefit(benefit);
-
-        OutputView.printTotalBenefit(benefit);
-        int totalBenefit = benefit.calculateTotalBenefits();
-        OutputView.printPayment(totalBenefit);
-        OutputView.printBadge(totalBenefit);
+        new BenefitAmount(date);
+        OutputView.printBenefit();
+        OutputView.printTotalBenefit();
+        OutputView.printPayment();
+        OutputView.printBadge();
     }
 }

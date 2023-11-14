@@ -40,39 +40,39 @@ public class OutputView {
         if(!TotalAmount.isBonus()) System.out.println("없음");
     }
 
-    public static void printBenefit(BenefitAmount benefit) {
+    public static void printBenefit() {
         System.out.println();
         System.out.println("<혜택 내역>");
-        if(benefit.calculateTotalBenefits()==0) {
+        if(BenefitAmount.calculateTotalBenefit()==0) {
             System.out.println("없음");
         }
-        for(String name : benefit.getBenefit().keySet()){
-            if(benefit.getBenefit().get(name)!=0) {
-                System.out.println(name + decimalFormat.format(benefit.getBenefit().get(name)) + "원");
+        for(String name : BenefitAmount.getBenefit().keySet()){
+            if(BenefitAmount.getBenefit().get(name)!=0) {
+                System.out.println(name + decimalFormat.format(BenefitAmount.getBenefit().get(name)) + "원");
             }
         }
 
     }
 
-    public static void printTotalBenefit(BenefitAmount benefit) {
+    public static void printTotalBenefit() {
         System.out.println();
         System.out.println("<총혜택 금액>");
-        String totalAmount = decimalFormat.format(benefit.calculateTotalBenefits());
+        String totalAmount = decimalFormat.format(BenefitAmount.calculateTotalBenefit());
         System.out.println(totalAmount + "원");
     }
 
-    public static void printPayment(int totalBenefit) {
+    public static void printPayment() {
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
-        int totalPay = TotalAmount.calculateTotalPrice() + totalBenefit;
+        int totalPay = TotalAmount.calculateTotalPrice() + BenefitAmount.calculateTotalBenefit();;
         if(TotalAmount.isBonus()) totalPay += 25000;
         String totalAmount = decimalFormat.format(totalPay);
         System.out.println(totalAmount + "원");
     }
 
-    public static void printBadge(int totalBenefit) {
+    public static void printBadge() {
         System.out.println();
         System.out.println("<12월 이벤트 배지>");
-        System.out.println(BenefitAmount.eventBadge(totalBenefit));
+        System.out.println(BenefitAmount.eventBadge());
     }
 }
