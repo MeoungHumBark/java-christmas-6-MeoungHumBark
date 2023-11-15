@@ -32,9 +32,7 @@ public class InputView {
         while (!validInput) {
             try {
                 String OrderInput = Console.readLine();
-                if (!isOrderFormatValid(OrderInput)) {
-                    throw new IllegalArgumentException();
-                }
+                validateFormat(OrderInput);
                 order.processOrder(OrderInput);
                 validInput = true;
             } catch (IllegalArgumentException e) {
@@ -42,8 +40,10 @@ public class InputView {
             }
         }
     }
-    public static boolean isOrderFormatValid(String orderInput) {
+    public static void validateFormat(String orderInput) {
         String orderFormatRegex = "^[a-zA-Z가-힣]+-[1-9]\\d*(,[a-zA-Z가-힣]+-[1-9]\\d*)*$";
-        return Pattern.matches(orderFormatRegex, orderInput);
+        if (!Pattern.matches(orderFormatRegex, orderInput)) {
+            throw new IllegalArgumentException();
+        }
     }
 }
