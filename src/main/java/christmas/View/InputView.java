@@ -11,11 +11,8 @@ public class InputView {
         boolean validInput = false;
         while (!validInput) {
             try {
-                String input = Console.readLine();
-                dateInput = Integer.parseInt(input);
-                if (dateInput < 1 || dateInput > 31) {
-                    throw new IllegalArgumentException();
-                }
+                dateInput = Integer.parseInt(Console.readLine());
+                validateDate(dateInput);
                 validInput = true;
             } catch (NumberFormatException e) {
                 System.out.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
@@ -24,6 +21,12 @@ public class InputView {
             }
         }
         return dateInput;
+    }
+
+    public static void validateDate(int dateInput) {
+        if (dateInput < 1 || dateInput > 31) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static void printOrderInput(Order order) {
