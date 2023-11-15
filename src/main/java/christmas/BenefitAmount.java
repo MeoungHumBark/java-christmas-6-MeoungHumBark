@@ -7,6 +7,7 @@ import java.util.List;
 public class BenefitAmount {
     private static final List<Integer> starDate = Arrays.asList(3, 10, 17, 24, 25, 31);
     private static final List<Integer> weekend = Arrays.asList(1,2,8,9,15,16,22,23,29,30);
+    private static int weekendDiscountAmount = -2023;
     private static int weekDiscountAmount = -2023;
 
     private static int christmasDiscountAmount = -1000;
@@ -30,8 +31,8 @@ public class BenefitAmount {
 
     public void weekDiscount(int date) {
         if(weekend.contains(date) && TotalAmount.isEvent()) {
-            weekDiscountAmount = Order.quantityOfType("메인")*weekDiscountAmount;
-            benefit.put("주말 할인: ",weekDiscountAmount);
+            weekendDiscountAmount = Order.quantityOfType("메인")*weekendDiscountAmount;
+            benefit.put("주말 할인: ",weekendDiscountAmount);
         }
         if(!weekend.contains(date) && TotalAmount.isEvent()){
             weekDiscountAmount = Order.quantityOfType("디저트")*weekDiscountAmount;
