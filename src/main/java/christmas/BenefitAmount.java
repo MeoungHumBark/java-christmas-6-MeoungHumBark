@@ -30,11 +30,11 @@ public class BenefitAmount {
     }
 
     public void weekDiscount(int date) {
-        if(weekend.contains(date) && TotalAmount.isEvent()) {
+        if(weekend.contains(date) && TotalAmount.isEvent() && Order.quantityOfType("메인")>0) {
             weekendDiscountAmount = Order.quantityOfType("메인")*weekendDiscountAmount;
             benefit.put("주말 할인: ",weekendDiscountAmount);
         }
-        if(!weekend.contains(date) && TotalAmount.isEvent()){
+        if(!weekend.contains(date) && TotalAmount.isEvent() && Order.quantityOfType("디저트")>0){
             weekDiscountAmount = Order.quantityOfType("디저트")*weekDiscountAmount;
             benefit.put("평일 할인: ",weekDiscountAmount);
         }
