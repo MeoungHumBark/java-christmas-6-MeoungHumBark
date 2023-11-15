@@ -15,7 +15,7 @@ public class TotalAmount {
     public static int calculateTotalPay() {
         int totalPay = 0;
         totalPay = calculateTotalPrice() + BenefitAmount.calculateTotalBenefit();
-        if(TotalAmount.isBonus()) totalPay += Menu.샴페인.getPrice();
+        if(isBonus()) totalPay += Menu.샴페인.getPrice();
         return totalPay;
     }
 

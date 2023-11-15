@@ -22,7 +22,7 @@ public class InputView {
         return dateInput;
     }
 
-    public static void validateDate(int dateInput) {
+    private static void validateDate(int dateInput) {
         if (dateInput < 1 || dateInput > 31) {
             throw new IllegalArgumentException();
         }
@@ -42,7 +42,7 @@ public class InputView {
             }
         }
     }
-    public static void validateFormat(String orderInput) {
+    private static void validateFormat(String orderInput) {
         String orderFormatRegex = "^[a-zA-Z가-힣]+-[1-9]\\d*(,[a-zA-Z가-힣]+-[1-9]\\d*)*$";
         if (!Pattern.matches(orderFormatRegex, orderInput)) {
             throw new IllegalArgumentException();
