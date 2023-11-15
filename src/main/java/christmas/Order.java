@@ -1,6 +1,5 @@
-package christmas.Order;
+package christmas;
 
-import christmas.Menu;
 import java.util.HashMap;
 
 public class Order {
@@ -31,7 +30,7 @@ public class Order {
     }
 
     private void validateOrder() {
-        if (Order.calculateTotalOrder()>20 || OrderByType.quantityOfNotDrink()==0) {
+        if (calculateTotalOrder()>20 || calculateTotalOrder()==quantityOfType("음료")) {
             order.clear();
             throw new IllegalArgumentException();
         }
@@ -41,11 +40,25 @@ public class Order {
         return order;
     }
 
-    public static int calculateTotalOrder() {
+    private int calculateTotalOrder() {
         int totalOrders = 0;
         for (int value : order.values()) {
             totalOrders += value;
         }
         return totalOrders;
+    }
+
+    public static int quantityOfType(String kind) {
+        int totalQuantityOfType = 0;
+
+        for (String name : order.keySet()) {
+            int quantity = order.get(name);
+            String type = Menu.valueOf(name).getType();
+
+            if (type.equals(kind)) {
+                totalQuantityOfType += quantity;
+            }
+        }
+        return totalQuantityOfType;
     }
 }

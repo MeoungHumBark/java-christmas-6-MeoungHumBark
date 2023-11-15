@@ -1,7 +1,5 @@
 package christmas;
 
-import christmas.Order.Order;
-
 public class TotalAmount {
 
     public static int calculateTotalPrice() {

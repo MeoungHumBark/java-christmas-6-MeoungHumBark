@@ -1,6 +1,5 @@
 package christmas;
 
-import christmas.Order.OrderByType;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -31,11 +30,11 @@ public class BenefitAmount {
 
     public void weekDiscount(int date) {
         if(weekend.contains(date) && TotalAmount.isEvent()) {
-            weekDiscountAmount = OrderByType.quantityOfMain()*weekDiscountAmount;
+            weekDiscountAmount = Order.quantityOfType("메인")*weekDiscountAmount;
             benefit.put("주말 할인: ",weekDiscountAmount);
         }
         if(!weekend.contains(date) && TotalAmount.isEvent()){
-            weekDiscountAmount = OrderByType.quantityOfDessert()*weekDiscountAmount;
+            weekDiscountAmount = Order.quantityOfType("디저트")*weekDiscountAmount;
             benefit.put("평일 할인: ",weekDiscountAmount);
         }
     }

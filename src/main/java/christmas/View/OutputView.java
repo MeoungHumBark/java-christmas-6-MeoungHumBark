@@ -1,7 +1,7 @@
 package christmas.View;
 
 import christmas.BenefitAmount;
-import christmas.Order.Order;
+import christmas.Order;
 import christmas.TotalAmount;
 import java.text.DecimalFormat;
 import java.util.Map;
