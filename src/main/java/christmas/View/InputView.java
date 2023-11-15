@@ -14,8 +14,6 @@ public class InputView {
                 dateInput = Integer.parseInt(Console.readLine());
                 validateDate(dateInput);
                 validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
             }
